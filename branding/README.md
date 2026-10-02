@@ -7,7 +7,7 @@ Designed as a sibling of the DotStark logo: the same orange circle with a white 
 | `socialpulse-logo.svg` | Primary logo (mark + wordmark), light backgrounds |
 | `socialpulse-logo-dark.svg` | Logo on a black background |
 | `socialpulse-mark.svg` | Circle mark only (avatars, sidebar) |
-| `socialpulse-app-icon.svg` | App icon: white pulse on an orange rounded square |
+| `socialpulse-app-icon.svg` | App icon: white "S" on an orange rounded square |
 | `favicon.svg`, `favicon.ico` | Favicon (circle mark) |
 | `png/` | Raster exports |
 
