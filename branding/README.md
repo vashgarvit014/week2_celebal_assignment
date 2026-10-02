@@ -1,23 +1,25 @@
 # SocialPulse logo
 
-A rounded lowercase wordmark where the "l" in "pulse" is a pencil: a blue body and a green tip. The pencil still reads as a letter, so the name stays legible while the logo carries its own symbol.
+Typographic logo in the style of "shape" wordmarks: the letters **SOCIALPULSE** form the body of a pencil, with a rounded eraser end on the left, a sharpened wooden tip on the right, and a pulse line drawn from the tip. "SOCIAL" is navy and "PULSE" is violet, so "Pulse" stands out.
 
 | File | Use |
 | --- | --- |
-| `socialpulse-logo-dark.svg` | Primary logo, on its navy background |
-| `socialpulse-logo.svg` | Navy text, transparent background (light surfaces) |
-| `socialpulse-logo-white.svg` | White text, transparent background (dark surfaces) |
-| `socialpulse-app-icon.svg` | App icon: the pencil on a navy tile |
-| `favicon.svg`, `favicon.ico` | Favicon (larger pencil for small sizes) |
+| `socialpulse-logo.svg` | Primary logo, transparent background (light surfaces) |
+| `socialpulse-logo-white.svg` | White/lavender version, transparent background (dark surfaces) |
+| `socialpulse-logo-dark.svg` | White version on a navy background |
+| `socialpulse-app-icon.svg` | App icon: an "SP" pencil on a cream tile |
+| `favicon.svg`, `favicon.ico` | Favicon (tighter crop of the app icon) |
 | `png/` | Raster exports |
 
 ## Colors
 
 | Token | Hex |
 | --- | --- |
-| Navy (background / text on light) | `#0B0A2A` |
-| Pencil body | `#3B82F6` (`#2563EB` on light) |
-| Pencil tip | `#22C55E` (`#16A34A` on light) |
-| Text on dark | `#FFFFFF` |
+| Navy ("SOCIAL", pencil lead) | `#1E1B4B` |
+| Violet ("PULSE", pulse line) | `#6D28D9` |
+| Wood (pencil tip) | `#F6C177` |
+| Cream (icon tile) | `#F4F1EA` |
+| Dark background | `#0F0D2E` |
+| On dark: "SOCIAL" / "PULSE" | `#FFFFFF` / `#A78BFA` |
 
-Wordmark: Quicksand Bold (SIL Open Font License), converted to outlines so the SVGs don't depend on installed fonts.
+Lettering: Bagel Fat One (SIL Open Font License), converted to outlines and warped into the pencil shape, so the SVGs don't depend on installed fonts.
