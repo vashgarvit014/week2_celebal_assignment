@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SocialPulse">
+  <title>SocialPulse</title>
+  <defs><linearGradient id="sp-t" x1="0" y1="64" x2="64" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4338CA"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
+  <rect width="64" height="64" rx="14" fill="url(#sp-t)"/>
+  <g transform="translate(6.399999999999999 6.399999999999999) scale(0.8) translate(1.2 -3.2)" fill="#FFFFFF">
+    <path d="M10.6 56.4 L20.9 52.5 L14.5 46.1 Z"/>
+    <path d="M19.4 47.6 L27 40 L33.5 46.5 L46.5 18.5" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round"/>
+    <circle cx="46.5" cy="18.5" r="4.5"/>
+  </g>
+</svg>
