@@ -1,6 +1,6 @@
 # SocialPulse logo
 
-Designed as a sibling of the DotStark logo: the same orange circle with a white cut-out line, next to a bold, dark, geometric wordmark. In SocialPulse the cut-out is a pulse line that enters through the left edge of the circle, the way DotStark's mark breaks its circle's edge.
+Designed as a sibling of the DotStark logo: the same orange circle with a white cut-out line, next to a bold, dark, geometric wordmark. In SocialPulse the cut-out is an "S" for Social, with a dot at each end: two people connected by a conversation.
 
 | File | Use |
 | --- | --- |
