@@ -137,6 +137,20 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
 .quote{background:var(--brand-soft);border:1px solid var(--brand-line);text-align:center;color:var(--brand-2);font-weight:700;font-size:18px;line-height:1.5}
 .quote span{display:block;font-size:34px;line-height:.8;margin-bottom:8px}
 
+
+/* Balanced two-column panel */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.pane{display:flex;flex-direction:column;gap:14px;padding:26px 28px}
+.pane+.pane{border-left:1px solid var(--line)}
+.pane .logo-box{margin:6px 0 0;padding:18px;background:#fbfbfe;flex-wrap:nowrap;flex:1}
+.pane .alt-row{margin:6px 0 0;padding:14px 0 0}
+.pane details{margin:0;flex:1;display:flex;flex-direction:column}
+.pane details textarea{flex:1;min-height:120px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair .btn{padding:14px 10px;text-align:center;font-size:14px;white-space:nowrap}
+.pair+.pair{margin-top:0}
+.pair.bottom{margin-top:auto}
+@media (max-width:900px){.split{grid-template-columns:1fr}.pane+.pane{border-left:0;border-top:1px solid var(--line)}}
 @media (max-width:1100px){.grid{grid-template-columns:1fr}.sidebar{display:none}.steps .step span{display:none}}
 @media (max-width:640px){.content{padding:16px}.top-right .pill,.top-right>span{display:none}.actions{grid-template-columns:1fr 1fr}.actions button{padding:8px;font-size:12px}}
 </style>
@@ -203,21 +217,6 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
           <div class="callout">✨ Consistent branding creates recognition, while accessible visuals make your content easier for everyone to understand.</div>
         </section>
 
-        <!-- Brand Identity: logo only -->
-        <section class="card">
-          <div class="section-top">
-            <div><h3>Brand Identity</h3><p class="sub">Keep your visuals consistent with your brand identity across every platform.</p></div>
-            <button class="btn primary">Apply to All Slides</button>
-          </div>
-          <div class="logo-box">
-            <div class="logo-thumb"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="30 14"/><circle cx="12" cy="12" r="2.5" fill="#fff"/></svg></div>
-            <div class="logo-info"><small>BRAND LOGO</small><b>SocialPulse</b><span class="ok">✓ Logo uploaded • bottom-left • 18%</span></div>
-            <div class="logo-actions"><button class="btn dashed">Change Logo</button><button class="btn remove">Remove</button></div>
-          </div>
-          <p class="note">Logo position: bottom-left • size 18% — change position/size in the logo dialog.</p>
-          <button class="wide">🏷️ Adjust Logo</button>
-        </section>
-
         <!-- Design Preview -->
         <section class="card">
           <h3>Design Preview</h3>
@@ -236,16 +235,28 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
           </div>
         </section>
 
-        <!-- ALT text -->
-        <section class="card">
-          <h3>Image ALT Text</h3>
-          <p class="sub">Add descriptions to your images to improve accessibility.</p>
-          <div class="alt-row"><b>Image ALT text</b><span>Descriptions stay with your images.</span></div>
-          <details>
-            <summary>Image 1 · ALT missing</summary>
-            <textarea placeholder="Describe this image, e.g. “A smiling woman using a tablet outdoors”"></textarea>
-          </details>
-          <button class="gen">Generate Missing ALT Text</button>
+        <!-- Logo + ALT: balanced two-column panel -->
+        <section class="card split">
+          <div class="pane">
+            <h3>Logo &amp; Visual Identity</h3>
+            <p class="sub">Upload your brand logo once and apply it to this image or all images.</p>
+            <div class="logo-box">
+              <div class="logo-thumb"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="30 14"/><circle cx="12" cy="12" r="2.5" fill="#fff"/></svg></div>
+              <div class="logo-info"><small>BRAND LOGO</small><b>SocialPulse</b><span class="ok">✓ Logo uploaded • bottom-right • 18%</span></div>
+            </div>
+            <div class="pair"><button class="btn dashed">Change Logo</button><button class="btn remove">Remove</button></div>
+            <div class="pair bottom"><button class="btn ghost">🏷️ Adjust Logo</button><button class="btn primary">Apply to All Slides</button></div>
+          </div>
+          <div class="pane">
+            <h3>Describe Your Image</h3>
+            <p class="sub">Add a short description to help people using screen readers understand your image.</p>
+            <div class="alt-row"><b>Image ALT text</b><span>Descriptions stay with your images.</span></div>
+            <details open>
+              <summary>Image 1 · ALT missing</summary>
+              <textarea placeholder="Describe this image, e.g. “A smiling woman using a tablet outdoors”"></textarea>
+            </details>
+            <div class="pair bottom"><button class="btn ghost">Generate Missing ALT Text</button><button class="btn primary">Save ALT Text</button></div>
+          </div>
         </section>
 
         <div class="nav-btns">
