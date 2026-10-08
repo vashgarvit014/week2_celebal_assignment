@@ -214,22 +214,63 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
 .back-row{margin-top:22px}
 
 /* Post Summary highlight animation */
-.summary-card{position:relative;border:0;background:#fff;isolation:isolate;animation:sumIn .7s cubic-bezier(.2,.8,.2,1) both,sumGlow 3s ease-in-out infinite}
-.summary-card::before{content:"";position:absolute;inset:-2px;border-radius:22px;z-index:-2;background:conic-gradient(from var(--a,0deg),#7c3aed,#ec4899,#38bdf8,#7c3aed);animation:spin 4s linear infinite}
-.summary-card::after{content:"";position:absolute;inset:0;border-radius:20px;z-index:-1;background:#fff}
-.summary-card .thumb{animation:float 3.2s ease-in-out infinite}
-.summary-card .tags span{animation:pop .5s both}
-.summary-card .tags span:nth-child(2){animation-delay:.1s}.summary-card .tags span:nth-child(3){animation-delay:.2s}.summary-card .tags span:nth-child(4){animation-delay:.3s}
-.summary-card .section-top h3{display:flex;align-items:center;gap:10px}
-.live{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 #22c55e88;animation:pulse 1.8s infinite}
 @property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.summary-card{position:relative;border:0;padding:0;isolation:isolate;overflow:visible;transform-style:preserve-3d;
+  animation:sumIn .9s cubic-bezier(.2,.9,.25,1.15) both,sumGlow 3s ease-in-out infinite;transition:transform .15s ease-out}
+.summary-card::before{content:"";position:absolute;inset:-3px;border-radius:24px;z-index:-2;background:conic-gradient(from var(--a),#7c3aed,#ec4899,#f59e0b,#38bdf8,#7c3aed);animation:spin 3.5s linear infinite;filter:blur(.3px)}
+.summary-card::after{content:"";position:absolute;inset:0;border-radius:21px;z-index:-1;background:#fff}
+.summary-card>*{position:relative}
+/* shimmer sweep */
+.summary-card .sum-body,.summary-card .tags{position:relative}
+.sum-hero{position:relative;overflow:hidden;border-radius:21px 21px 0 0;padding:18px 18px 22px;background:linear-gradient(135deg,#1e1042,#4c1d95 55%,#7c3aed);color:#fff}
+.sum-hero::after{content:"";position:absolute;top:0;bottom:0;width:60px;left:-80px;background:linear-gradient(100deg,transparent,#ffffff66,transparent);transform:skewX(-20deg);animation:sweep 3.6s ease-in-out infinite}
+.blob{position:absolute;border-radius:50%;filter:blur(28px);opacity:.75;mix-blend-mode:screen}
+.b1{width:140px;height:140px;background:#ec4899;top:-40px;right:-30px;animation:drift1 7s ease-in-out infinite}
+.b2{width:120px;height:120px;background:#38bdf8;bottom:-50px;left:-20px;animation:drift2 8s ease-in-out infinite}
+.b3{width:90px;height:90px;background:#f59e0b;top:30%;left:45%;animation:drift1 9s ease-in-out infinite reverse;opacity:.5}
+.spark{position:absolute;color:#fff;font-size:16px;opacity:0;animation:twinkle 3s ease-in-out infinite}
+.s1{top:14%;left:12%}.s2{top:28%;right:16%;animation-delay:.8s;font-size:22px}.s3{bottom:22%;left:30%;animation-delay:1.6s;font-size:12px}.s4{bottom:12%;right:10%;animation-delay:2.2s}
+.sum-top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.badge{display:inline-flex;align-items:center;gap:10px;background:#ffffff26;backdrop-filter:blur(8px);border:1px solid #ffffff44;padding:8px 14px;border-radius:999px;font-weight:800;font-size:15px}
+.edit-chip{background:#ffffff26;border:1px solid #ffffff44;color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:13px;backdrop-filter:blur(8px);transition:.2s}
+.edit-chip:hover{background:#fff;color:var(--brand-2);transform:scale(1.06)}
+.sum-media{position:relative;z-index:2;margin-top:16px;display:flex;align-items:flex-end;justify-content:space-between}
+.summary-card .thumb{width:150px;height:110px;border-radius:16px;border:3px solid #ffffffcc;box-shadow:0 14px 30px #0006;animation:float 3.4s ease-in-out infinite;transform:rotate(-3deg);position:relative;overflow:hidden}
+.summary-card .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,#ffffff88 50%,transparent 65%);transform:translateX(-120%);animation:shine 3.6s ease-in-out infinite 1.2s}
+.ring{position:relative;width:78px;height:78px;background:#ffffff1f;border-radius:50%;backdrop-filter:blur(6px);display:grid;place-items:center}
+.ring svg{position:absolute;inset:6px;width:calc(100% - 12px);height:calc(100% - 12px);transform:rotate(-90deg)}
+.ring circle{fill:none;stroke:#ffffff33;stroke-width:3}
+.ring .arc{stroke:#a7f3d0;stroke-linecap:round;stroke-dasharray:97.4;stroke-dashoffset:97.4;transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1)}
+.ring b{font-size:17px;font-weight:800}
+.sum-body{padding:20px 22px 0}
+.cap{display:block;font-size:17px;line-height:1.35;min-height:70px}
+.cap::after{content:"▍";color:var(--brand);animation:blink .8s steps(1) infinite;margin-left:2px}
+.cap.done::after{display:none}
+.desc{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.summary-card .tags{padding:0 22px;margin:16px 0 14px}
+.summary-card .tags span{opacity:0;animation:pop .5s cubic-bezier(.2,.9,.3,1.5) forwards;transition:.2s}
+.summary-card .tags span:hover{transform:translateY(-3px) scale(1.08);background:var(--brand);color:#fff}
+.summary-card .tags span:nth-child(1){animation-delay:.9s}.summary-card .tags span:nth-child(2){animation-delay:1s}.summary-card .tags span:nth-child(3){animation-delay:1.1s}.summary-card .tags span:nth-child(4){animation-delay:1.2s}
+.summary-card .collab,.summary-card .ready,.summary-card .go{margin-left:22px;margin-right:22px}
+.summary-card .go{margin-bottom:22px}
+.summary-card .ready{animation:rise .6s both 1.3s}
+.summary-card .go #publish:not(:disabled){animation:ready 1.6s ease-in-out infinite}
+.live{width:10px;height:10px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 #4ade80aa;animation:pulse 1.8s infinite}
 @keyframes spin{to{--a:360deg}}
-@keyframes sumIn{from{opacity:0;transform:translateX(24px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes sumGlow{0%,100%{box-shadow:0 8px 28px #7c3aed26}50%{box-shadow:0 12px 42px #7c3aed55}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
-@keyframes pulse{70%{box-shadow:0 0 0 9px #22c55e00}100%{box-shadow:0 0 0 0 #22c55e00}}
-@media (prefers-reduced-motion:reduce){.summary-card,.summary-card::before,.summary-card .thumb,.summary-card .tags span,.live{animation:none}}
+@keyframes sumIn{from{opacity:0;transform:translateX(60px) rotateY(-18deg) scale(.92)}to{opacity:1;transform:none}}
+@keyframes sumGlow{0%,100%{box-shadow:0 10px 34px #7c3aed30}50%{box-shadow:0 16px 60px #ec489960}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-7px) rotate(-1deg)}}
+@keyframes pop{from{opacity:0;transform:scale(.4) translateY(8px)}to{opacity:1;transform:none}}
+@keyframes pulse{70%{box-shadow:0 0 0 10px #4ade8000}100%{box-shadow:0 0 0 0 #4ade8000}}
+@keyframes sweep{0%,55%{left:-80px}100%{left:120%}}
+@keyframes shine{0%,40%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,25px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-20px)}}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.4) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(90deg)}}
+@keyframes blink{50%{opacity:0}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes ready{0%,100%{box-shadow:0 10px 22px #7c3aed44}50%{box-shadow:0 0 0 6px #7c3aed22,0 12px 30px #7c3aed88}}
+@media (prefers-reduced-motion:reduce){.summary-card,.summary-card::before,.sum-hero *,.sum-hero::after,.summary-card .thumb,.summary-card .thumb::after,.summary-card .tags span,.live,.summary-card .ready,.cap::after,#publish{animation:none!important}.summary-card .tags span{opacity:1}}
 @media (max-width:1100px){.aside{position:static}}
 @media (max-width:640px){.plat-grid,.opts,.when{grid-template-columns:1fr}.hero .tag{margin-left:0}}
 @media (max-width:1100px){.grid{grid-template-columns:1fr}.sidebar{display:none}.steps .step span{display:none}}
@@ -314,9 +355,17 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
       </div>
 
       <aside class="stack aside">
-        <section class="card summary-card">
-          <div class="section-top"><h3><span class="live"></span>Post Summary</h3><button class="btn ghost" style="padding:8px 14px;font-size:14px">✏️ Edit</button></div>
-          <div class="sum"><div class="thumb"></div><div><b>This is more than just a device — it’s a reminder that creat…</b><p>In a quiet outdoor corner, surrounded by greenery and soft light, the focus shifts to connection.</p></div></div>
+        <section class="card summary-card" id="sumCard">
+          <div class="sum-hero">
+            <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+            <span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span><span class="spark s4">✧</span>
+            <div class="sum-top"><span class="badge"><span class="live"></span>Post Summary</span><button class="edit-chip">✏️ Edit</button></div>
+            <div class="sum-media"><div class="thumb"></div><div class="ring" title="Content readiness"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5"/><circle class="arc" cx="18" cy="18" r="15.5"/></svg><b id="pct">0%</b></div></div>
+          </div>
+          <div class="sum-body">
+            <b class="cap" id="cap" data-text="This is more than just a device — it’s a reminder that creat…"></b>
+            <p class="desc">In a quiet outdoor corner, surrounded by greenery and soft light, the focus shifts to connection.</p>
+          </div>
           <div class="tags"><span id="tagPlat">Instagram</span><span>Single Post</span><span>16:9</span><span>Cinematic</span></div>
           <div class="collab" id="collab"><label for="u">Instagram collaborator (optional)</label><input id="u" placeholder="username (without @)"><small>They get an invite inside Instagram and must accept before the collab shows on the post.</small></div>
           <div class="ready">
@@ -375,6 +424,23 @@ document.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{
 });
 $('#refresh').onclick=render;
 render();
+
+// Post Summary effects
+(function(){
+  const cap=$('#cap'),txt=cap.dataset.text;let i=0;
+  const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(calm){cap.textContent=txt;cap.classList.add('done')}
+  else setTimeout(function t(){cap.textContent=txt.slice(0,++i);i<txt.length?setTimeout(t,28):cap.classList.add('done')},700);
+  const arc=document.querySelector('.ring .arc'),pct=$('#pct');
+  setTimeout(()=>{arc.style.strokeDashoffset=97.4*(1-.75);
+    let n=0;const iv=setInterval(()=>{pct.textContent=(n+=3)+'%';if(n>=75){pct.textContent='75%';clearInterval(iv)}},40)},500);
+  const card=$('#sumCard');
+  if(!calm&&matchMedia('(hover:hover)').matches){
+    card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      card.style.animation='sumGlow 3s ease-in-out infinite';card.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*6}deg)`});
+    card.addEventListener('mouseleave',()=>card.style.transform='');
+  }
+})();
 </script>
 </body>
 </html>
