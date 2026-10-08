@@ -212,6 +212,24 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
 .hint{background:#fffbea;border:1px solid #f4e3a1;color:#8a5a00;border-radius:12px;padding:12px 14px;font-size:13.5px;font-weight:600}
 .hint.ok{background:var(--ok-soft);border-color:#a7ecd0;color:#0b7a53}
 .back-row{margin-top:22px}
+
+/* Post Summary highlight animation */
+.summary-card{position:relative;border:0;background:#fff;isolation:isolate;animation:sumIn .7s cubic-bezier(.2,.8,.2,1) both,sumGlow 3s ease-in-out infinite}
+.summary-card::before{content:"";position:absolute;inset:-2px;border-radius:22px;z-index:-2;background:conic-gradient(from var(--a,0deg),#7c3aed,#ec4899,#38bdf8,#7c3aed);animation:spin 4s linear infinite}
+.summary-card::after{content:"";position:absolute;inset:0;border-radius:20px;z-index:-1;background:#fff}
+.summary-card .thumb{animation:float 3.2s ease-in-out infinite}
+.summary-card .tags span{animation:pop .5s both}
+.summary-card .tags span:nth-child(2){animation-delay:.1s}.summary-card .tags span:nth-child(3){animation-delay:.2s}.summary-card .tags span:nth-child(4){animation-delay:.3s}
+.summary-card .section-top h3{display:flex;align-items:center;gap:10px}
+.live{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 #22c55e88;animation:pulse 1.8s infinite}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+@keyframes sumIn{from{opacity:0;transform:translateX(24px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes sumGlow{0%,100%{box-shadow:0 8px 28px #7c3aed26}50%{box-shadow:0 12px 42px #7c3aed55}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+@keyframes pulse{70%{box-shadow:0 0 0 9px #22c55e00}100%{box-shadow:0 0 0 0 #22c55e00}}
+@media (prefers-reduced-motion:reduce){.summary-card,.summary-card::before,.summary-card .thumb,.summary-card .tags span,.live{animation:none}}
 @media (max-width:1100px){.aside{position:static}}
 @media (max-width:640px){.plat-grid,.opts,.when{grid-template-columns:1fr}.hero .tag{margin-left:0}}
 @media (max-width:1100px){.grid{grid-template-columns:1fr}.sidebar{display:none}.steps .step span{display:none}}
@@ -296,8 +314,8 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
       </div>
 
       <aside class="stack aside">
-        <section class="card">
-          <div class="section-top"><h3>Post Summary</h3><button class="btn ghost" style="padding:8px 14px;font-size:14px">✏️ Edit</button></div>
+        <section class="card summary-card">
+          <div class="section-top"><h3><span class="live"></span>Post Summary</h3><button class="btn ghost" style="padding:8px 14px;font-size:14px">✏️ Edit</button></div>
           <div class="sum"><div class="thumb"></div><div><b>This is more than just a device — it’s a reminder that creat…</b><p>In a quiet outdoor corner, surrounded by greenery and soft light, the focus shifts to connection.</p></div></div>
           <div class="tags"><span id="tagPlat">Instagram</span><span>Single Post</span><span>16:9</span><span>Cinematic</span></div>
           <div class="collab" id="collab"><label for="u">Instagram collaborator (optional)</label><input id="u" placeholder="username (without @)"><small>They get an invite inside Instagram and must accept before the collab shows on the post.</small></div>
