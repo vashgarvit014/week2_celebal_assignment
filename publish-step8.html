@@ -154,10 +154,10 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
 
 /* ---- Step 8: Publish ---- */
 .progress.full span{width:100%}.progress.full span::after{left:100%}
-.hero{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero{display:flex;align-items:center;gap:18px;flex-wrap:nowrap}
 .hero .ico{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#8b5cf6,#6d28d9);color:#fff;display:grid;place-items:center;font-size:26px;box-shadow:0 10px 22px #7c3aed44}
-.hero h2{font-size:26px}.hero p{color:var(--muted)}
-.hero .tag{margin-left:auto;background:var(--brand-soft);border:1px solid var(--brand-line);color:var(--brand-2);border-radius:14px;padding:12px 18px;font-weight:700;font-size:14px;line-height:1.4}
+.hero h2{font-size:26px;white-space:nowrap}.hero p{color:var(--muted)}
+.hero .tag{margin-left:auto;text-align:left;flex-shrink:1;align-self:center;background:var(--brand-soft);border:1px solid var(--brand-line);color:var(--brand-2);border-radius:14px;padding:12px 18px;font-weight:700;font-size:14px;line-height:1.4}
 .hero .tag small{display:block;font-weight:500;color:var(--muted)}
 .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
 .num{width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;flex-shrink:0}
@@ -272,7 +272,7 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
 @keyframes ready{0%,100%{box-shadow:0 10px 22px #7c3aed44}50%{box-shadow:0 0 0 6px #7c3aed22,0 12px 30px #7c3aed88}}
 @media (prefers-reduced-motion:reduce){.summary-card,.summary-card::before,.sum-hero *,.sum-hero::after,.summary-card .thumb,.summary-card .thumb::after,.summary-card .tags span,.live,.summary-card .ready,.cap::after,#publish{animation:none!important}.summary-card .tags span{opacity:1}}
 @media (max-width:1100px){.aside{position:static}}
-@media (max-width:640px){.plat-grid,.opts,.when{grid-template-columns:1fr}.hero .tag{margin-left:0}}
+@media (max-width:640px){.plat-grid,.opts,.when{grid-template-columns:1fr}.hero{flex-wrap:wrap}.hero .tag{margin-left:0}}
 @media (max-width:1100px){.grid{grid-template-columns:1fr}.sidebar{display:none}.steps .step span{display:none}}
 @media (max-width:640px){.content{padding:16px}.top-right .pill,.top-right>span{display:none}.actions{grid-template-columns:1fr 1fr}.actions button{padding:8px;font-size:12px}}
 </style>
@@ -330,7 +330,7 @@ details textarea{width:100%;margin-top:12px;padding:12px;border-radius:10px;bord
       <div class="stack">
         <section class="card hero">
           <div class="ico">✈️</div>
-          <div><h2>Publish Your Post</h2><p>Step 8 of 8: Pick where it goes, then choose when.</p></div>
+          <h2>Publish Your Post</h2>
           <div class="tag">👑 Great content is meant to be shared!<small>Choose your platform and timing.</small></div>
         </section>
 
